@@ -1,0 +1,132 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--background-color); /* White by default from index.css */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  padding: 0.75rem 0; /* Thin band */
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Uses global .container for width and padding */
+}
+
+.logoLink {
+  font-size: 1.75rem; /* Approx 28px */
+  font-weight: bold;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.logoAi {
+  color: var(--primary-color); /* Blue */
+}
+
+.nav {
+  /* Desktop navigation container */
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem; /* Approx 32px space between nav items */
+}
+
+.navItem {
+  /* Individual list item, if specific styling is needed */
+}
+
+.navLink {
+  color: var(--text-color-light);
+  text-decoration: none;
+  font-size: 1rem; /* Approx 16px */
+  padding: 0.25rem 0;
+  transition: color 0.2s ease-in-out;
+}
+
+.navLink:hover {
+  color: var(--primary-color);
+}
+
+.activeLink {
+  composes: navLink; /* Inherits base styles from .navLink */
+  color: var(--primary-color);
+  font-weight: 500; /* Medium weight */
+}
+
+/* Mobile Menu Styles */
+.menuButton {
+  display: none; /* Hidden on desktop by default */
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.menuButton svg { /* Style for the SVG icon if needed */
+  width: 24px;
+  height: 24px;
+}
+
+.mobileNav {
+  /* Container for mobile navigation links, shown when isMenuOpen is true */
+  margin-top: 1rem;
+  padding-bottom: 1rem; /* Matches original Tailwind pb-4 */
+}
+
+.mobileNavList {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem; /* Approx 16px space */
+}
+
+/* Apply .navLink and .activeLink to mobile NavLinks as well */
+/* The 'block' behavior for mobile links will be handled by them being direct children of flex-column parent */
+
+/* Media query for mobile */
+@media (max-width: 768px) {
+  .nav {
+    display: none; /* Hide desktop nav */
+  }
+
+  .menuButton {
+    display: block; /* Show mobile menu button */
+  }
+}
+
+/* Theme Toggle Button Styles */
+.themeToggleButton {
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius);
+  font-size: 1rem; /* Adjust as needed */
+  margin-left: 1rem; /* Space it from nav or logo */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.themeToggleButton:hover {
+  background-color: var(--background-color-alt);
+  border-color: var(--primary-color);
+}
+
+/* Adjust margin for mobile if needed */
+@media (max-width: 768px) {
+  .themeToggleButton {
+    margin-left: auto; /* Pushes it to the right, before the menu button if both are visible */
+    margin-right: 0.5rem; /* Space before menu button */
+  }
+}

@@ -4,7 +4,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import NewsPage from './pages/NewsPage';
 import SimpleCareerPage from './pages/SimpleCareerPage';
-import './App.css';
+// import './App.css'; // We can decide if we need this later, for now, global styles are in index.css
 
 function App() {
   return (

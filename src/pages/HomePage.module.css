@@ -1,0 +1,236 @@
+/* Hero Section Styles */
+.hero {
+  /* Assuming a full-width hero, perhaps with a background image or color */
+  background-color: var(--secondary-color); /* Example: Dark green/teal */
+  color: var(--background-color); /* White text on dark background */
+  padding: 4rem 0; /* Substantial padding */
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 3rem; /* Large title */
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color); /* Yellow for hero title */
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-color); /* White text */
+  opacity: 0.9;
+}
+
+.ctaButton {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: var(--primary-color-dark);
+}
+
+/* Sections within HomePage */
+.secondaryContentSection {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2.5rem; /* h2 equivalent */
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.25rem;
+  color: var(--text-color-light);
+  margin-bottom: 3rem;
+}
+
+/* Card Grid / Secondary Content Styles */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem; /* Add some padding for smaller screens */
+}
+
+.card {
+  background-color: var(--background-color);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.cardIconContainer {
+  height: 3rem;
+  width: 3rem;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.cardIconContainer svg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+/* Specific icon colors - you can adjust these as needed */
+.iconInnovative {
+  background-color: var(--secondary-color-x-light);
+  color: var(--secondary-color);
+}
+
+.iconExpert {
+  background-color: #e9d5ff; /* Example: light purple */
+  color: #805ad5; /* Example: purple */
+}
+
+.iconSecure {
+  background-color: #c6f6d5; /* Example: light green */
+  color: #38a169; /* Example: green */
+}
+
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.cardText {
+  color: var(--text-color-light);
+  line-height: 1.6;
+}
+
+/* Contact Form Styles */
+.contactFormContainer {
+  background-color: #f8f9fa; /* Light neutral background for the form section */
+  padding: 3rem 0;
+}
+
+.contactFormSection {
+  padding: 4rem 0;
+  background-color: var(--background-color-alt);
+}
+
+.formContainer {
+  background-color: var(--background-color);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.formSuccessMessage {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--success-color-light);
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem; /* Added to separate from potential form below */
+}
+
+.formSuccessMessage svg {
+  height: 3rem;
+  width: 3rem;
+  color: var(--success-color);
+  margin: 0 auto 1rem;
+}
+
+.formSuccessTitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--success-color-dark);
+  margin-bottom: 0.5rem;
+}
+
+.formSuccessText {
+  color: var(--success-color);
+}
+
+.formLabel {
+  display: block;
+  color: var(--text-color);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin-bottom: 0.25rem; /* Space before error message */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color-x-light);
+}
+
+.formTextarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.formErrorMessage {
+  color: var(--error-color);
+  margin-top: 0.25rem;
+  margin-bottom: 1rem; /* Space after error message */
+  font-size: 0.875rem;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.submitButton {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  padding: 0.875rem 1.5rem;
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.submitButton:disabled {
+  background-color: var(--text-color-light);
+  cursor: not-allowed;
+}
+
+.formSubmitError {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: var(--error-color-light);
+  color: var(--error-color-dark);
+  border-radius: var(--border-radius);
+  text-align: center;
+}

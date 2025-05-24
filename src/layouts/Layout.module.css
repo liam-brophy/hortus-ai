@@ -1,0 +1,13 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the layout takes at least the full viewport height */
+}
+
+.mainContent {
+  flex-grow: 1; /* Allows the main content area to expand and fill available space */
+  /* The padding-top should match the height of your fixed Header */
+  /* Let's assume the Header's height is roughly 60-80px. 
+     The previous Tailwind class was pt-16, which is 4rem or 64px. */
+  padding-top: 4rem; 
+}

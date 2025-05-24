@@ -1,74 +1,89 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
-  --primary-color: #1a56db;
-  --secondary-color: #7e22ce;
-  --accent-color: #10b981;
-  --background-color: #ffffff;
-  --text-color: #1f2937;
-  --text-color-light: #6b7280;
-  --border-color: #e5e7eb;
+  --primary-color: #00BEA5;       /* Main interactive teal/aqua */
+  --secondary-color: #006F7C;    /* Dark green/teal for secondary links or accents */
+  --accent-color: #00D870;        /* Bright green for call-to-actions */
+  --highlight-color: #FFFF8F;     /* Light yellow for specific highlights */
+
+  --background-color: #FFFFFF;
+  --text-color: #006F7C;          /* Dark green/teal for main text */
+  --text-color-light: #00525A;    /* Slightly darker/muted green for less emphasis text */
+  --text-strong-color: #000000;   /* Black for very strong text if needed */
+  
+  --border-color: #e0e0e0;        /* Light gray for borders */
+  --font-sans: 'Roboto', sans-serif;
 }
 
-@layer base {
-  body {
-    font-family: 'Roboto', sans-serif;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    margin: 0;
-    min-width: 320px;
-    min-height: 100vh;
-  }
+/* Dark Theme Variables */
+body[data-theme='dark'] {
+  --primary-color: #00D870;       /* Bright green for links on dark bg */
+  --secondary-color: #00BEA5;    /* Teal/aqua for secondary links on dark bg */
+  --accent-color: #FFFF8F;        /* Yellow for accents on dark bg */
+  --highlight-color: #00BEA5;     /* Teal/aqua for specific highlights on dark bg */
+
+  --background-color: #00525A;    /* Darker Green/Teal for background (derived from text-color-light) */
+  /* Or use --secondary-color directly if #006F7C is preferred for dark bg */
+  /* --background-color: #006F7C; */ 
+  --text-color: #FFFFFF;          /* White for main text */
+  --text-color-light: #c0c0c0;    /* Light gray for less emphasis text */
+  --text-strong-color: #FFFF8F;   /* Yellow for strong text if needed */
   
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: 500;
-    line-height: 1.2;
-  }
-  
-  a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.2s ease-in-out;
-  }
-  
-  a:hover {
-    color: var(--secondary-color);
-  }
+  --border-color: #007F8C;        /* A slightly lighter shade of dark green for borders */
 }
 
-@layer components {
-  .container {
-    @apply px-4 mx-auto;
-    max-width: 1280px;
-  }
-  
-  .btn {
-    @apply px-4 py-2 rounded font-medium transition-all duration-200;
-  }
-  
-  .btn-primary {
-    @apply bg-blue-600 text-white hover:bg-blue-700;
-  }
-  
-  .btn-secondary {
-    @apply bg-purple-600 text-white hover:bg-purple-700;
-  }
-  
-  .card {
-    @apply bg-white p-6 rounded-lg shadow-md;
-  }
-  
-  .section {
-    @apply py-16;
-  }
-  
-  .header {
-    @apply sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm;
-  }
-  
-  .footer {
-    @apply bg-gray-100 py-8 mt-auto border-t border-gray-200;
-  }
+body {
+  font-family: var(--font-sans);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2.5rem; } /* Example: ~40px */
+h2 { font-size: 2rem; }   /* Example: ~32px */
+h3 { font-size: 1.75rem; }/* Example: ~28px */
+h4 { font-size: 1.5rem; } /* Example: ~24px */
+h5 { font-size: 1.25rem; }/* Example: ~20px */
+h6 { font-size: 1rem; }   /* Example: ~16px */
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline; /* Added underline on hover for clarity */
+}
+
+.container {
+  max-width: 1280px;
+  padding-left: 1rem; /* 16px */
+  padding-right: 1rem; /* 16px */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section {
+  padding-top: 4rem;    /* 64px */
+  padding-bottom: 4rem; /* 64px */
+}
+
+/* Add other global utility classes or base styles here if needed */
+
+/* Removing Tailwind directives and @layer rules, 
+   and incorporating base styles directly.
+   The component-specific styles like .btn, .card, .header, .footer 
+   will be moved to their respective CSS Modules or handled differently.
+*/

@@ -1,0 +1,68 @@
+.footer {
+  background-color: #f8f9fa; /* A light gray, similar to common footer backgrounds */
+  color: var(--text-color-light);
+  padding: 2rem 0; /* py-8 equivalent */
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footerContent {
+  /* Uses global .container for width and padding */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+  gap: 0.5rem; /* Space between items */
+}
+
+.footerLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1.5rem; /* Space between links */
+  justify-content: center;
+  flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+}
+
+.footerLinkItem {
+  /* Individual list item for links */
+}
+
+.footerLink {
+  color: var(--text-color-light);
+  text-decoration: none;
+}
+
+.footerLink:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.socialLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0; /* Added some top margin */
+  display: flex;
+  gap: 1rem; /* Space between social icons */
+  justify-content: center;
+}
+
+.socialLinkItem {
+  /* Individual list item for social icons */
+}
+
+.socialLink svg {
+  width: 20px; /* Adjust size as needed */
+  height: 20px; /* Adjust size as needed */
+  fill: var(--text-color-light);
+  transition: fill 0.2s ease-in-out;
+}
+
+.socialLink:hover svg {
+  fill: var(--primary-color);
+}
+
+.copyright {
+  margin-top: 1rem;
+}
