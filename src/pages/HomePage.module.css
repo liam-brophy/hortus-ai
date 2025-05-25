@@ -1,24 +1,62 @@
 /* Hero Section Styles */
 .hero {
-  /* Assuming a full-width hero, perhaps with a background image or color */
-  background-color: var(--secondary-color); /* Example: Dark green/teal */
-  color: var(--background-color); /* White text on dark background */
-  padding: 4rem 0; /* Substantial padding */
-  text-align: center;
+  background-color: rgba(var(--theme-background-rgb), 0.9); /* Slightly opaque */
+  color: var(--text-color); /* Text color will be determined by theme variables */
+  min-height: 100vh; /* Ensures the section takes up at least 100% of the viewport height */
+  width: 100%; /* Ensures the section takes up the full browser width */
+  display: flex; /* Changed to flex for side-by-side layout */
+  align-items: center; /* Vertically center content */
+  justify-content: space-between; /* Space between text and illustration */
+  padding: 2rem 4rem; /* Adjust padding as needed */
+  position: relative; /* Ensure the hero section is a positioning context for the TreeAnimation */
+  overflow: hidden; /* Prevent child elements from overflowing */
+  z-index: 0; /* Set base z-index for stacking context */
+}
+
+.heroTextContent {
+  flex: 1; /* Allow text content to take available space */
+  text-align: left; /* Align text to the left */
+  padding-right: 2rem; /* Space between text and illustration */
+  position: relative; /* For z-index stacking if needed */
+  z-index: 1; /* Ensure text is above any background elements in hero */
+}
+
+.heroIllustrationContainer {
+  flex: 1; /* Allow illustration to take available space */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Changed to align items at the bottom */
+  height: 100%; /* Make container take full height of hero */
+  max-height: calc(100vh - 8rem); /* Example: constrain height, ensure it fits, adjust 8rem based on padding */
+  overflow: hidden; /* To cut off bottom of SVG if it overflows */
+  position: relative; /* For z-index stacking if needed */
+  z-index: 0; /* Behind text content */
+  padding: 1rem; /* Added padding to prevent SVG from touching edges */
+}
+
+/* Styles for the TreeAnimation SVG if direct styling is needed via its container */
+.heroIllustrationContainer > :first-child > svg { /* Targeting the SVG element within TreeAnimation */
+  width: 100%;
+  height: 100%; /* Make SVG fill its container */
+  object-fit: contain; /* Or cover, depending on desired effect */
+  object-position: bottom center; /* Aligns bottom of SVG if object-fit is contain/cover */
+  display: block; /* Ensure SVG is treated as a block element */
 }
 
 .heroTitle {
-  font-size: 3rem; /* Large title */
+  font-size: 4.5rem; /* Increased font size for the main title */
   font-weight: bold;
   margin-bottom: 1.5rem;
   color: var(--primary-color); /* Yellow for hero title */
+  /* position and z-index removed, handled by .heroTextContent */
 }
 
 .heroSubtitle {
-  font-size: 1.5rem;
+  font-size: 2rem; /* Increased font size for the subtitle */
   margin-bottom: 2rem;
   color: var(--text-color); /* White text */
   opacity: 0.9;
+  /* position and z-index removed, handled by .heroTextContent */
 }
 
 .ctaButton {
@@ -30,6 +68,7 @@
   border-radius: var(--border-radius);
   text-decoration: none;
   transition: background-color 0.3s ease;
+  /* position and z-index removed, handled by .heroTextContent */
 }
 
 .ctaButton:hover {
@@ -40,6 +79,9 @@
 .secondaryContentSection {
   padding: 4rem 0;
   text-align: center;
+  position: relative; /* Establish stacking context */
+  z-index: 1; /* Ensure this section is above the hero */
+  background-color: rgba(var(--theme-background-rgb), 0.95); /* More opaque */
 }
 
 .sectionTitle {
@@ -66,7 +108,7 @@
 }
 
 .card {
-  background-color: var(--background-color);
+  background-color: rgba(255, 255, 255, 0.85); /* Semi-opaque white background */
   padding: 2rem;
   border-radius: var(--border-radius);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -125,16 +167,19 @@
 
 .contactFormSection {
   padding: 4rem 0;
-  background-color: var(--background-color-alt);
+  background-color: rgba(var(--theme-background-rgb), 0.95); /* More opaque */
+  position: relative; /* Establish stacking context */
+  z-index: 1; /* Ensure this section is above the hero */
 }
 
 .formContainer {
-  background-color: var(--background-color);
-  padding: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-opaque white background */
+  padding: 2.5rem; /* Consistent padding */
   border-radius: var(--border-radius);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 700px;
-  margin: 0 auto;
+  /* max-width: 700px; Let flexbox handle width */
+  flex: 1; /* Original: flex: 1 */
+  /* margin: 0 auto; Removed to allow side-by-side layout */
 }
 
 .formSuccessMessage {
@@ -167,18 +212,18 @@
   display: block;
   color: var(--text-color);
   font-weight: 500;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem; /* Consistent spacing */
 }
 
 .formInput,
 .formTextarea {
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.875rem 1rem; /* Adjusted padding for consistency */
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   background-color: var(--background-color);
   color: var(--text-color);
-  margin-bottom: 0.25rem; /* Space before error message */
+  margin-bottom: 0.25rem; 
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -197,12 +242,12 @@
 .formErrorMessage {
   color: var(--error-color);
   margin-top: 0.25rem;
-  margin-bottom: 1rem; /* Space after error message */
+  margin-bottom: 1rem; 
   font-size: 0.875rem;
 }
 
 .formGroup {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem; /* Consistent spacing between groups */
 }
 
 .submitButton {
@@ -233,4 +278,39 @@
   color: var(--error-color-dark);
   border-radius: var(--border-radius);
   text-align: center;
+}
+
+/* New styles for contact section layout */
+.contactLayoutContainer {
+  display: flex;
+  align-items: center; /* Original: center */
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Removed empty .contactImageContainer ruleset */
+
+.contactIllustration {
+  max-width: 100%;
+  height: auto;
+  object-fit: initial; /* Reverted */
+  object-position: initial; /* Reverted */
+  border-radius: var(--border-radius);
+}
+
+/* Ensure form text is centered as it was originally for this section */
+.formContainer .sectionTitle,
+.formContainer .sectionSubtitle {
+  text-align: center; /* Reverted: center */
+}
+
+/* Responsive adjustments for contact layout - Reverted */
+@media (max-width: 768px) {
+  .contactLayoutContainer {
+    flex-direction: column; /* Original: column */
+  }
+  .formContainer {
+    max-width: 100%;
+  }
 }

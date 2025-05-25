@@ -1,0 +1,225 @@
+/* filepath: /Users/liambrophy/Development/code/hortus-ai/src/styles/globals.css */
+:root {
+  --primary-color: #1a56db;
+  --secondary-color: #7e22ce;
+  --accent-color: #10b981;
+  --background-color: #ffffff;
+  --text-color: #1f2937;
+  --text-color-light: #6b7280;
+  --border-color: #e5e7eb;
+
+  --max-width: 1100px;
+  --border-radius: 12px;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+
+  /* Define the base theme background color */
+  --theme-background-base-rgb: 50, 50, 50; /* Example: a dark gray. Adjust as needed. */
+  /* Or, if you want to keep using existing variables for light/dark themes: */
+  /* --theme-background-base-rgb: var(--background-start-rgb); */
+
+
+  /* Light theme variables (original) */
+  --background-start-rgb-light: 214, 219, 220;
+  --background-end-rgb-light: 255, 255, 255;
+  --foreground-rgb-light: 0, 0, 0;
+  --primary-glow-light: conic-gradient(
+    from 180deg at 50% 50%,
+    #16abff33 0deg,
+    #0885ff33 55deg,
+    #54d6ff33 120deg,
+    #0071ff33 160deg,
+    transparent 360deg
+  );
+  --secondary-glow-light: radial-gradient(
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+  --tile-start-rgb-light: 239, 245, 249;
+  --tile-end-rgb-light: 228, 232, 233;
+  --tile-border-light: conic-gradient(
+    #00000080,
+    #00000040,
+    #00000030,
+    #00000020,
+    #00000010,
+    #00000010,
+    #00000080
+  );
+  --callout-rgb-light: 238, 240, 241;
+  --callout-border-rgb-light: 172, 175, 176;
+  --card-rgb-light: 180, 185, 188;
+  --card-border-rgb-light: 131, 134, 135;
+
+  /* Dark theme variables (original) */
+  --background-start-rgb-dark: 10, 10, 10; /* Slightly adjusted for better contrast if needed */
+  --background-end-rgb-dark: 20, 20, 20;
+  --foreground-rgb-dark: 255, 255, 255;
+  --primary-glow-dark: conic-gradient(
+    from 180deg at 50% 50%,
+    #16abff33 0deg,
+    #0885ff33 55deg,
+    #54d6ff33 120deg,
+    #0071ff33 160deg,
+    transparent 360deg
+  );
+  --secondary-glow-dark: radial-gradient(
+    rgba(255, 255, 255, 0.05), /* Adjusted for dark theme */
+    rgba(255, 255, 255, 0)
+  );
+  --tile-start-rgb-dark: 25, 28, 30; /* Adjusted for dark theme */
+  --tile-end-rgb-dark: 15, 18, 20;   /* Adjusted for dark theme */
+  --tile-border-dark: conic-gradient( /* Adjusted for dark theme */
+    #ffffff80,
+    #ffffff40,
+    #ffffff30,
+    #ffffff20,
+    #ffffff10,
+    #ffffff10,
+    #ffffff80
+  );
+  --callout-rgb-dark: 30, 33, 35; /* Adjusted for dark theme */
+  --callout-border-rgb-dark: 108, 117, 125; /* Adjusted for dark theme */
+  --card-rgb-dark: 20, 23, 25; /* Adjusted for dark theme */
+  --card-border-rgb-dark: 80, 85, 90; /* Adjusted for dark theme */
+
+  /* Default to light theme variables */
+  --background-start-rgb: var(--background-start-rgb-light);
+  --background-end-rgb: var(--background-end-rgb-light);
+  --foreground-rgb: var(--foreground-rgb-light);
+  --primary-glow: var(--primary-glow-light);
+  --secondary-glow: var(--secondary-glow-light);
+  --tile-start-rgb: var(--tile-start-rgb-light);
+  --tile-end-rgb: var(--tile-end-rgb-light);
+  --tile-border: var(--tile-border-light);
+  --callout-rgb: var(--callout-rgb-light);
+  --callout-border-rgb: var(--callout-border-rgb-light);
+  --card-rgb: var(--card-rgb-light);
+  --card-border-rgb: var(--card-border-rgb-light);
+
+  /* Base theme background color variable, derived from theme-specific start color */
+  --theme-background-rgb: var(--background-start-rgb);
+}
+
+[data-theme="dark"] {
+  --background-start-rgb: var(--background-start-rgb-dark);
+  --background-end-rgb: var(--background-end-rgb-dark);
+  --foreground-rgb: var(--foreground-rgb-dark);
+  --primary-glow: var(--primary-glow-dark);
+  --secondary-glow: var(--secondary-glow-dark);
+  --tile-start-rgb: var(--tile-start-rgb-dark);
+  --tile-end-rgb: var(--tile-end-rgb-dark);
+  --tile-border: var(--tile-border-dark);
+  --callout-rgb: var(--callout-rgb-dark);
+  --callout-border-rgb: var(--callout-border-rgb-dark);
+  --card-rgb: var(--card-rgb-dark);
+  --card-border-rgb: var(--card-border-rgb-dark);
+
+  /* Update base theme background for dark mode */
+  --theme-background-rgb: var(--background-start-rgb-dark);
+}
+
+@layer base {
+  body {
+    color: rgb(var(--foreground-rgb));
+    /* Use the new theme background variable for a solid background */
+    background-color: rgb(var(--theme-background-rgb));
+    /* Remove the gradient if a solid color is preferred */
+    /* background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+      )
+      rgb(var(--background-start-rgb)); */
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-mono); /* Or your preferred font */
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  a:hover {
+    color: var(--secondary-color);
+  }
+}
+
+@layer components {
+  .container {
+    max-width: 1280px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+  }
+  
+  .btn-primary {
+    background-color: #2563eb;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .btn-secondary {
+    background-color: #6b46c1;
+    color: white;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #553c9a;
+  }
+  
+  .card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: white;
+    border-bottom-width: 1px;
+    border-bottom-color: #e5e7eb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  }
+  
+  .footer {
+    background-color: #f3f4f6;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-top: auto;
+    border-top-width: 1px;
+    border-top-color: #e5e7eb;
+  }
+}

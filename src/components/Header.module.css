@@ -3,10 +3,10 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: var(--background-color); /* White by default from index.css */
+  background-color: rgba(var(--theme-background-rgb), 1); /* Fully opaque */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   z-index: 1000;
-  padding: 0.75rem 0; /* Thin band */
+  padding: 1rem 0; /* Increased padding for more visual space */
 }
 
 .headerContent {
@@ -17,7 +17,7 @@
 }
 
 .logoLink {
-  font-size: 1.75rem; /* Approx 28px */
+  font-size: 2rem; /* Increased font size for logo */
   font-weight: bold;
   color: var(--text-color);
   text-decoration: none;
@@ -46,19 +46,24 @@
 .navLink {
   color: var(--text-color-light);
   text-decoration: none;
-  font-size: 1rem; /* Approx 16px */
+  font-size: 1.1rem; /* Slightly increased font size */
   padding: 0.25rem 0;
-  transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out, font-size 0.2s ease-in-out; /* Added font-size transition */
 }
 
 .navLink:hover {
   color: var(--primary-color);
+  font-size: 1.2rem; /* Increase font size on hover */
+  text-decoration: none; /* Ensure no underline */
 }
 
 .activeLink {
-  composes: navLink; /* Inherits base styles from .navLink */
-  color: var(--primary-color);
-  font-weight: 500; /* Medium weight */
+  color: var(--primary-color); /* Inherited and overridden */
+  text-decoration: none; /* Inherited */
+  font-size: 1.2rem; /* Match hover font size, was 1.1rem from navLink + override */
+  padding: 0.25rem 0; /* Inherited */
+  transition: color 0.2s ease-in-out, font-size 0.2s ease-in-out; /* Inherited */
+  font-weight: 600; /* Medium weight, slightly bolder */
 }
 
 /* Mobile Menu Styles */

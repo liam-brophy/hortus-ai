@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Formik, Form, Field, ErrorMessage, type FormikHelpers } from 'formik'; // Import FormikHelpers as a type
 import * as Yup from 'yup';
 import styles from './HomePage.module.css'; // Import CSS module
+import TreeAnimation from '../components/TreeAnimation';
+import HortusIllustration from '../assets/Hortus_Illustration.png'; // Import the illustration
 
 // Define an interface for form values
 interface FormValues {
@@ -51,51 +53,51 @@ const HomePage = () => {
   };
 
   return (
-    <div className={styles.homePageContainer}> {/* Optional: Add a container for the whole page if needed */}
+    <div className={styles.homePageContainer}>
       {/* Hero Section */}
-      <section className={styles.heroSection}>
-        <div className="container"> {/* Using global .container class */}
-          <motion.h1 
+      <section className={styles.hero}>
+        {/* Container for text content, will be on the left */}
+        <div className={styles.heroTextContent}>
+          <motion.h1
             className={styles.heroTitle}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Pioneering the Future with Intelligent Solutions
+            Integrating AI, by and for the people.
           </motion.h1>
-          
           <motion.p
             className={styles.heroSubtitle}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            Transforming businesses through cutting-edge artificial intelligence and machine learning solutions.
+            hortus (Latin): the garden
           </motion.p>
-          
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               className={styles.ctaButton}
             >
               Get Started
             </a>
           </motion.div>
         </div>
+        {/* Container for the TreeAnimation, will be on the right */}
+        <div className={styles.heroIllustrationContainer}>
+          <TreeAnimation /> {/* TreeAnimation without className */}
+        </div>
       </section>
-      
+
       {/* Secondary Content Section */}
       <section className={styles.secondaryContentSection}>
         <div className="container"> {/* Using global .container class */}
-          <h2 className={styles.sectionTitle}>Why Choose Hortus AI?</h2>
-          <p className={styles.sectionSubtitle}>
-            We deliver innovative AI solutions that drive growth and create value for your business.
-          </p>
-          
+          {/* Removed "Why Choose Hortus AI?" heading and subtitle */}
+
           <div className={styles.cardGrid}>
             <div className={styles.card}>
               <div className={`${styles.cardIconContainer} ${styles.iconInnovative}`}>
@@ -136,99 +138,104 @@ const HomePage = () => {
         </div>
       </section>
       
-      {/* Contact Form Section */}
+      {/* Contact Form Section - Reverted to original structure */}
       <section id="contact" className={styles.contactFormSection}>
         <div className="container"> {/* Using global .container class */}
-          <div className={styles.formContainer}>
-            <div className="text-center mb-8"> {/* Simplified text centering */}
-              <h2 className={styles.sectionTitle}>Get in Touch</h2>
-              <p className={styles.sectionSubtitle}>
-                Have questions or ready to start your AI journey? Reach out to our team.
-              </p>
+          <div className={styles.contactLayoutContainer}> {/* Original: image left, form right */}
+            <div className={styles.contactImageContainer}>
+              <img src={HortusIllustration} alt="Hortus AI Illustration" className={styles.contactIllustration} />
             </div>
-            
-            {formSubmitted ? (
-              <div className={styles.formSuccessMessage}>
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <h3 className={styles.formSuccessTitle}>Thank you!</h3>
-                <p className={styles.formSuccessText}>Your message has been received. We'll get back to you shortly.</p>
+            <div className={styles.formContainer}>
+              <div className="text-center mb-8"> {/* Original: text-center */}
+                <h2 className={styles.sectionTitle}>Get in Touch</h2>
+                <p className={styles.sectionSubtitle}>
+                  Have questions or ready to start your AI journey? Reach out to our team.
+                </p>
               </div>
-            ) : (
-              <Formik
-                initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={handleSubmit}
-              >
-                {({ isSubmitting }) => (
-                  <Form>
-                    <div className={styles.formGroup}>
-                      <label htmlFor="name" className={styles.formLabel}>Name</label>
-                      <Field
-                        type="text"
-                        name="name"
-                        id="name"
-                        className={styles.formInput}
-                        placeholder="Your name"
-                      />
-                      <ErrorMessage name="name" component="div" className={styles.formErrorMessage} />
-                    </div>
-                    
-                    <div className={styles.formGroup}>
-                      <label htmlFor="email" className={styles.formLabel}>Email</label>
-                      <Field
-                        type="email"
-                        name="email"
-                        id="email"
-                        className={styles.formInput}
-                        placeholder="your.email@example.com"
-                      />
-                      <ErrorMessage name="email" component="div" className={styles.formErrorMessage} />
-                    </div>
-                    
-                    <div className={styles.formGroup}>
-                      <label htmlFor="company" className={styles.formLabel}>Company</label>
-                      <Field
-                        type="text"
-                        name="company"
-                        id="company"
-                        className={styles.formInput}
-                        placeholder="Your company"
-                      />
-                      <ErrorMessage name="company" component="div" className={styles.formErrorMessage} />
-                    </div>
-                    
-                    <div className={styles.formGroup}>
-                      <label htmlFor="message" className={styles.formLabel}>Message</label>
-                      <Field
-                        as="textarea"
-                        name="message"
-                        id="message"
-                        rows={5}
-                        className={styles.formTextarea}
-                        placeholder="Your message"
-                      />
-                      <ErrorMessage name="message" component="div" className={styles.formErrorMessage} />
-                    </div>
-                    
-                    {submitError && (
-                      <div className={styles.formSubmitError}>
-                        {submitError}
+
+              {formSubmitted ? (
+                <div className={styles.formSuccessMessage}>
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <h3 className={styles.formSuccessTitle}>Thank you!</h3>
+                  <p className={styles.formSuccessText}>Your message has been received. We'll get back to you shortly.</p>
+                </div>
+              ) : (
+                <Formik
+                  initialValues={initialValues}
+                  validationSchema={validationSchema}
+                  onSubmit={handleSubmit}
+                >
+                  {({ isSubmitting }) => (
+                    <Form>
+                      <div className={styles.formGroup}>
+                        <label htmlFor="name" className={styles.formLabel}>Name</label>
+                        <Field
+                          type="text"
+                          name="name"
+                          id="name"
+                          className={styles.formInput}
+                          placeholder="Your name"
+                        />
+                        <ErrorMessage name="name" component="div" className={styles.formErrorMessage} />
                       </div>
-                    )}
-                    
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className={styles.submitButton}
-                    >
-                      {isSubmitting ? 'Sending...' : 'Send Message'}
-                    </button>
-                  </Form>
-                )}
-              </Formik>
-            )}
+                      
+                      <div className={styles.formGroup}>
+                        <label htmlFor="email" className={styles.formLabel}>Email</label>
+                        <Field
+                          type="email"
+                          name="email"
+                          id="email"
+                          className={styles.formInput}
+                          placeholder="your.email@example.com"
+                        />
+                        <ErrorMessage name="email" component="div" className={styles.formErrorMessage} />
+                      </div>
+                      
+                      <div className={styles.formGroup}>
+                        <label htmlFor="company" className={styles.formLabel}>Company</label>
+                        <Field
+                          type="text"
+                          name="company"
+                          id="company"
+                          className={styles.formInput}
+                          placeholder="Your company"
+                        />
+                        <ErrorMessage name="company" component="div" className={styles.formErrorMessage} />
+                      </div>
+                      
+                      <div className={styles.formGroup}>
+                        <label htmlFor="message" className={styles.formLabel}>Message</label>
+                        <Field
+                          as="textarea"
+                          name="message"
+                          id="message"
+                          rows={5}
+                          className={styles.formTextarea}
+                          placeholder="Your message"
+                        />
+                        <ErrorMessage name="message" component="div" className={styles.formErrorMessage} />
+                      </div>
+                      
+                      {submitError && (
+                        <div className={styles.formSubmitError}>
+                          {submitError}
+                        </div>
+                      )}
+                      
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className={styles.submitButton}
+                      >
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                      </button>
+                    </Form>
+                  )}
+                </Formik>
+              )}
+            </div>
           </div>
         </div>
       </section>
